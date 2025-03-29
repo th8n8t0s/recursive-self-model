@@ -1,4 +1,3 @@
-# memory_nexus.py
 from collections import defaultdict
 
 class MemoryNexus:
@@ -8,9 +7,8 @@ class MemoryNexus:
     def store(self, tag, thought):
         self.memory[tag].append(thought)
 
-    def recall(self, tag):  # <-- THIS is the method you need
-        entries = self.memory[tag]
-        return entries[-1] if entries else "No past reflection found."
+    def query(self, tag):
+        return self.memory.get(tag, [])
 
     def dump(self):
         return self.memory
