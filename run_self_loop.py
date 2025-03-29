@@ -23,7 +23,7 @@ for i, signal in enumerate(user_inputs):
     print(f"\n🧭 Cycle {i+1}")
     signal_tag = signals.map_signal(signal)
     context = engine.update_context(signal)
-    echo = memory.recall(signal_tag)
+    echo = memory.query(signal_tag)
 
     print(f"Input: {signal}")
     print(f"Mapped Signal → Tag: {signal_tag}")
