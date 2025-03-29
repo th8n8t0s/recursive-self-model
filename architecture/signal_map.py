@@ -1,15 +1,16 @@
-# Signal Map (goal echo system)
 class SignalMap:
-    def __init__(self):
-        self.signal_patterns = {}
+    def map_signal(self, text):
+        if "help" in text:
+            return "compassion"
+        elif "self" in text or "me" in text:
+            return "identity"
+        elif "grow" in text or "become" in text:
+            return "growth"
+        elif "recursion" in text:
+            return "reflection"
+        else:
+            return "general"
 
-    def reinforce(self, memory_trace):
-        goals = {}
-        for signal in memory_trace:
-            if signal in self.signal_patterns:
-                goals[signal] = self.signal_patterns[signal]
-        return goals
-
-    def add_signal(self, signal, meaning):
-        self.signal_patterns[signal] = meaning
-
+    def reinforce(self, trace):
+        # Simple rule: return tag category if it's been used
+        return [entry for entry in trace if entry]
