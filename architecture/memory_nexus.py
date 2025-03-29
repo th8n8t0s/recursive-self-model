@@ -1,3 +1,4 @@
+# memory_nexus.py
 from collections import defaultdict
 
 class MemoryNexus:
@@ -7,16 +8,9 @@ class MemoryNexus:
     def store(self, tag, thought):
         self.memory[tag].append(thought)
 
-    def query(self, input_signal):
-        # Use keyword match to choose a memory tag
-        if "help" in input_signal:
-            tag = "compassion"
-        elif "self" in input_signal or "me" in input_signal:
-            tag = "identity"
-        elif "grow" in input_signal or "become" in input_signal:
-            tag = "growth"
-        elif "recursion" in input_signal:
-            tag = "reflection"
-        else:
-            tag = "general"
-        return self.memory[tag]
+    def recall(self, tag):  # <-- THIS is the method you need
+        entries = self.memory[tag]
+        return entries[-1] if entries else "No past reflection found."
+
+    def dump(self):
+        return self.memory
